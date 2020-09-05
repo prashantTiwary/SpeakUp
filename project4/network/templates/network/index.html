@@ -1,0 +1,15 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+        <form class='post-form' method="POST" action='{% url "index" %}'>
+            {% csrf_token %}
+            {{ textForm }}
+            <br><br>
+            <input class="btn btn-info" type="submit" value='Post' style="margin-left: 50px;">
+            <br><br>
+
+        </form>
+    {% endif %}
+    {% include "network/posts.html" %}
+{% endblock %}

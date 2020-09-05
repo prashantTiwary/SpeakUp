@@ -1,0 +1,36 @@
+{% extends "network/layout.html" %}
+{% block body %}
+{% load static %}
+
+{% block additional_head %}
+    <script id="user-script" data-target="{{ target_user.id }}" src="{% static 'network/user.js' %}"></script>
+{% endblock %}
+
+    {% if target_user == user %}
+        <h2 style="text-align: center;">You</h2>
+    {% else %}
+        <h2 style="text-align: center;"> {{ target_user }}</h2>
+    {% endif %}
+    <div class = 'userinfo'></div>
+
+    {% if target_user.id is not user.id and user.is_authenticated %}
+    <div class=follow-btn>
+        <button id="follow-btn" class="btn btn-primary">
+            {% if not user in target_user.followers.all %}
+                Follow
+            {% else %}
+                Unfollow
+            {% endif %}
+        </button><br><br>
+    </div>
+        
+    {% endif %}
+
+
+        <div class="col-auto">
+                <span>Followers : {{ target_user.followers.all.count }}  </span>
+                <span>Following : {{ target_user.following.all.count }}  </span>
+        </div>  <br><br>      
+    </div>
+    {% include "network/posts.html" %}
+{% endblock %}

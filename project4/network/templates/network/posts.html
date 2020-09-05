@@ -1,0 +1,42 @@
+{% load static %}
+
+{% for post in page_obj %}
+    <div id='post{{ post.id }}' class='post-box'>
+        <div class='card post-card'>
+            <div class='card-body'>
+                <a class='post-user navbar-brand' href="{% url 'user' post.user.id %}">{{ post.user }}</a>
+                {% if user.id == post.user.id %}
+                    <div class=edit-button>
+                        <button class='edit' data-id='{{ post.id }}'>Edit Post</button>
+                    </div>
+                    
+                {% endif %}
+            </div>
+            <p id='text{{ post.id }}'class='post-text'>{{ post.text }}</p>
+            <div class='post-footer'>                    
+                
+                <div class='post-date'>{{ post.timestamp}}</div>
+            
+
+            <div class='likes-wrapper'>
+                {% if user.is_authenticated %}
+                    {% if post.id in likes %}
+                        <button class='like-btn' data-id='{{ post.id }}' type='button'><i class="fas fa-thumbs-up"></i></button>
+                    {% else %}
+                        <button class='like-btn' data-id='{{ post.id }}' type='button'><i class="far fa-thumbs-up"></i></button>       
+                    {% endif %}  
+                {% else %}    
+                    <inline class='like-btn'><i class="far fa-thumbs-up"></i></inline>     
+                {% endif %}
+                
+                <inline id='like-count{{ post.id }}'>{{ post.get_likes }}</inline>
+            </div>
+        </div>
+        
+       
+    </div>
+{% empty %}
+    <p>No Posts!</p>
+{% endfor %}   
+<br><br>
+{% include "network/paginator.html" %}

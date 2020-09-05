@@ -1,0 +1,121 @@
+.body {
+   
+    align-items: center;
+}
+
+.post-box {
+       
+    border: 1px solid #2ce65d;
+ 
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: blue;
+    text-decoration: none;
+}
+
+.post-text {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    margin-left: 40px;
+}
+
+.post-user {
+    font-size: 30px;
+    text-decoration: none ;
+    align-items: center;
+}
+
+.post-date {
+    color: gray;
+    font-size: small;
+    font-weight: lighter;
+    text-align: right;
+}
+
+.like-btn {
+    color:#ff3300;
+    background: white;
+    border: none;
+    margin-left: 20px;
+}
+
+.post-form {
+    margin-left: 20px;
+    margin-right: 20px;
+    
+    height: 350px;
+    
+}
+
+.post-field {
+    border: 3px solid rgb(43, 214, 226);
+    background-color: #e1eceb;
+    border-radius: 5px 5px 0px 0px;
+    
+    width: 100%;
+    
+    padding: 10px;
+}
+
+.post-field {
+    height: 70%;
+}
+
+.post-field:focus {
+    outline: none;
+    border: 1px solid rgb(43, 214, 226);
+    
+}
+
+.edit {
+    align-items:right;
+    background-color: cadetblue;
+    color:white ;
+    cursor: pointer;
+    margin: auto;
+   
+}
+
+.edit:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.edit-buttons {
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+}
+
+label{
+    display: none;
+}
+
+
+.user-info {
+   
+    justify-content: space-between;
+    width: 50%;
+    min-width: 400px;
+    margin-bottom: 20px;
+}
+
+.col-auto{
+    align-items: center;
+    text-align: center;
+}
+
+.follow-btn{
+    
+    align-items: center;
+    text-align: center;
+}
+
+.edit-button{
+    text-align: end ;
+}
